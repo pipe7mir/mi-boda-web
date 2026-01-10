@@ -1,3 +1,22 @@
+nav {
+    /* 1. FIJAR EL MENÚ ARRIBA */
+    position: fixed; /* Hace que el menú se quede quieto al bajar */
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    /* 2. EL TRUCO MÁGICO (Capa Superior) */
+    z-index: 1000; /* Un número alto asegura que esté ENCIMA de las fotos */
+
+    /* 3. FONDO SÓLIDO */
+    /* Si no pones fondo blanco, las fotos se verán "a través" de las letras */
+    background-color: white; 
+    
+    /* 4. ESTÉTICA (Opcional) */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombrita para separarlo del contenido */
+}
+
 /* Reset básico para quitar márgenes por defecto */
 * {
     margin: 0;
@@ -84,18 +103,18 @@ header#inicio {
     position: relative; /* Importante */
 
     /* 2. LAS 3 CAPAS DE FONDO (En orden de aparición: Arriba -> Abajo) */
-    background-image: 
+    background-image:
+        url('img/bg1.png'), /* Capa 1: Fondo de color */
         url('img/nvf1.png'),   /* Capa 2: Los Novios */
-        linear-gradient(rgba(33, 74, 22, 0.5), rgba(33, 74, 22, 0.5)), /* Capa 1: Color verde */
         url('img/f1.jpg');     /* Capa 3: Fondo de humo */
 
     /* 3. POSICIÓN DE CADA CAPA */
     /* Color: Centro | Novios: Abajo al Centro | Humo: Centro */
-    background-position: right bottom, center, center center;
+    background-position: center bottom, right bottom, center center;
 
     /* 4. TAMAÑO DE CADA CAPA */
     /* Color: Todo | Novios: 60% de la altura (ajusta esto a tu gusto) | Humo: Todo */
-    background-size: auto 110vh,cover, cover;
+    background-size: cover,auto 90vh,cover;
 
     /* 5. EVITAR REPETICIÓN */
     background-repeat: no-repeat;
@@ -140,4 +159,59 @@ header#inicio {
     color: #214a16;           /* El texto se pone verde oscuro */
     transform: scale(1.05);   /* Crece un poco */
     cursor: pointer;
+}
+.boton-fotos {
+    display: inline-block;
+    margin-top: 30px;      /* Espacio separado del contador */
+    padding: 12px 35px;    /* Tamaño del botón */
+    
+    /* Diseño Ghost (Transparente con borde) */
+    background-color: transparent;
+    border: 2px solid#2e4722;
+    color: #2e4722;
+    
+    /* Tipografía */
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    border-radius: 5px;    /* Bordes un poco redondeados */
+    
+    transition: all 0.3s ease;
+}
+
+.boton-fotos:hover {
+    background-color: rgb(173, 136, 64);  /* Se rellena de blanco */
+    color: #214a16;           /* El texto se pone verde oscuro */
+    transform: scale(1.05);   /* Crece un poco */
+    cursor: pointer;
+
+}
+
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.galeria-fotos img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}   
+.galeria-fotos img:hover {
+    transform: scale(1.05);
+}
+.zona-subir-fotos {
+    margin-top: 30px;
+}
+.zona-subir-fotos p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
 }
