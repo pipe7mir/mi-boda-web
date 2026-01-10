@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Acompáñanos a celebrar nuestra boda. Felipe & Catherine - 06 de Marzo, 2026.">
+    <meta name="theme-color" content="#2e4722"> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <title>Nuestra Boda | Felipe & Catherine</title>
     
-    <title>Nuestra Boda | Felipe & Catherine</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <link rel="stylesheet" href="css/footer.css">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </head>
 <body>
 
     <nav>
@@ -66,7 +71,7 @@
             <div class="evento" data-aos="fade-right">
                 <div class="icono-evento"><i class="fas fa-church"></i></div>
                 <div class="info-evento">
-                    <h3>3:00 PM</h3>
+                    <h3>3:30 PM</h3>
                     <h4>Ceremonia Religiosa</h4>
                 </div>
             </div>
@@ -74,7 +79,7 @@
             <div class="evento" data-aos="fade-left">
                 <div class="icono-evento"><i class="fas fa-glass-cheers"></i></div>
                 <div class="info-evento">
-                    <h3>5:00 PM</h3>
+                    <h3>4:30 PM</h3>
                     <h4>Recepción y Coctel</h4>
                 </div>
             </div>
@@ -97,9 +102,8 @@
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Ubicación</h3>
                 <p>Salon de eventos Turquesa</p>
-                <p>Medellín, Antioquia, Carrera 81 # 28-52 | Piso 2
-                </p>
-                <a href="https://maps.app.goo.gl/KuAesu7GvvRj7xaE6" target="_blank" class="btn-pequeno">Ver Mapa</a>
+                <p>Medellín, Antioquia, Carrera 81 # 28-52 | Piso 2</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+eventos+Turquesa+Medellin" target="_blank" class="btn-pequeno">Ver Mapa</a>
             </div>
 
             <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="200">
@@ -121,11 +125,11 @@
         <h2 data-aos="fade-up">Nuestros Momentos</h2>
         
         <div class="galeria-fotos" data-aos="fade-up" data-aos-delay="200">
-            <img src="img/foto1.jpg" alt="Foto 1" loading="lazy">
-            <img src="img/foto2.jpg" alt="Foto 2" loading="lazy">
-            <img src="img/foto3.jpg" alt="Foto 3" loading="lazy">
-            <img src="img/foto4.jpg" alt="Foto 4" loading="lazy">
-            <img src="img/foto5.jpg" alt="Foto 5" loading="lazy">
+            <img src="img/foto1.jpg" alt="Felipe y Catherine foto 1" width="280" height="400" loading="lazy">
+            <img src="img/foto2.jpg" alt="Felipe y Catherine foto 2" width="280" height="400" loading="lazy">
+            <img src="img/foto3.jpg" alt="Felipe y Catherine foto 3" width="280" height="400" loading="lazy">
+            <img src="img/foto4.jpg" alt="Felipe y Catherine foto 4" width="280" height="400" loading="lazy">
+            <img src="img/foto5.jpg" alt="Felipe y Catherine foto 5" width="280" height="400" loading="lazy">
         </div>
 
         <div class="zona-subir-fotos" data-aos="flip-up">
@@ -143,9 +147,12 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            once: true, /* La animación solo ocurre una vez al bajar */
+            offset: 100
+        });
     </script>
     
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
