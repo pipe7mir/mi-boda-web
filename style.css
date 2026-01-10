@@ -1,0 +1,73 @@
+/* Reset básico para quitar márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif; /* Fuente para texto corrido */
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+/* Tipografía elegante para títulos */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #bfa67a; /* Color dorado */
+}
+
+/* Estilo del Header (Hero Section) */
+header {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #f4f1ea; /* Color crema suave de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+header .date {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Navegación */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Secciones generales */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
