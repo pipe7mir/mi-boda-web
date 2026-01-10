@@ -111,3 +111,33 @@ header#inicio {
     /* Un poco más sutil para el texto pequeño */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
+/* --- ESTILO DEL BOTÓN EN EL HEADER --- */
+.btn-header {
+    display: inline-block;
+    margin-top: 30px;      /* Espacio separado del contador */
+    padding: 12px 35px;    /* Tamaño del botón */
+    
+    /* Diseño Ghost (Transparente con borde) */
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    
+    /* Tipografía */
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    border-radius: 5px;    /* Bordes un poco redondeados */
+    
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.btn-header:hover {
+    background-color: rgb(173, 136, 64);  /* Se rellena de blanco */
+    color: #214a16;           /* El texto se pone verde oscuro */
+    transform: scale(1.05);   /* Crece un poco */
+    cursor: pointer;
+}

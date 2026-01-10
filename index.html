@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Boda</title>
+    <title>Nuestra Boda | Felipe & Catherine</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#historia">Nuestra Historia</a></li>
+            <li><a href="#galeria">Galería</a></li>
             <li><a href="#rsvp">Confirmar</a></li>
         </ul>
     </nav>
@@ -22,14 +22,33 @@
             <h1>Felipe & Catherine</h1>
             <p>¡Nos casamos!</p>
             <p class="date">06 de Marzo, 2026</p>
+
+            <div id="cuenta-regresiva">
+                <div class="caja-tiempo">
+                    <span id="dias">00</span>
+                    <span class="etiqueta">Días</span>
+                </div>
+                <div class="caja-tiempo">
+                    <span id="horas">00</span>
+                    <span class="etiqueta">Hs</span>
+                </div>
+            </div>
+
+            <a href="https://docs.google.com/forms/..." target="_blank" class="btn-header">
+                Confirmar Asistencia
+            </a>
         </div>
     </header>
 
-    <section id="historia">
-        <h2>Cómo nos conocimos</h2>
-        <p>Aquí pondremos el texto romántico...</p>
+    <section id="galeria">
+        <h2>Nuestros Momentos</h2>
+        <div class="galeria-grid">
+            <img src="img/foto1.jpg" alt="Foto 1">
+            <img src="img/foto2.jpg" alt="Foto 2">
+            <img src="img/foto3.jpg" alt="Foto 3">
+            <img src="img/foto4.jpg" alt="Foto 4">
+        </div>
     </section>
-
     <footer>
         <p>Creado con amor para nuestra boda</p>
     </footer>
