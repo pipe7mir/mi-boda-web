@@ -71,7 +71,43 @@ section {
     padding: 80px 20px;
     text-align: center;
 }
+
 header#inicio {
-    /* fondo actualizado  */
-    background-image: linear-gradient(rgba(33, 74, 22, 0.5), rgba(0, 0, 0, 0.5)), url('img/f1.jpg');
+    /* 1. CONFIGURACIÓN DEL CONTENEDOR */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative; /* Importante */
+
+    /* 2. LAS 3 CAPAS DE FONDO (En orden de aparición: Arriba -> Abajo) */
+    background-image: 
+        url('img/nvf1.png'),   /* Capa 2: Los Novios */
+        linear-gradient(rgba(33, 74, 22, 0.5), rgba(33, 74, 22, 0.5)), /* Capa 1: Color verde */
+        url('img/f1.jpg');     /* Capa 3: Fondo de humo */
+
+    /* 3. POSICIÓN DE CADA CAPA */
+    /* Color: Centro | Novios: Abajo al Centro | Humo: Centro */
+    background-position: right bottom, center, center center;
+
+    /* 4. TAMAÑO DE CADA CAPA */
+    /* Color: Todo | Novios: 60% de la altura (ajusta esto a tu gusto) | Humo: Todo */
+    background-size: auto 110vh,cover, cover;
+
+    /* 5. EVITAR REPETICIÓN */
+    background-repeat: no-repeat;
+}
+/* 1. Sombra fuerte para los Nombres (H1) */
+.hero-text h1 {
+    /* Desplazamiento X, Desplazamiento Y, Difuminado, Color (Negro con 70% opacidad) */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* 2. Sombra suave para la fecha y el mensaje (Párrafos) */
+.hero-text p {
+    /* Un poco más sutil para el texto pequeño */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
