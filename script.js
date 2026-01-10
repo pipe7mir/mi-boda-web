@@ -1,5 +1,5 @@
 // Fecha de la boda
-const fechaBoda = new Date("March 6, 2026 15:00:00").getTime();
+const fechaBoda = new Date("March 6, 2026 15:30:00").getTime();
 
 // Actualizar cada 1 segundo
 const x = setInterval(function() {
