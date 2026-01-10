@@ -1,70 +1,71 @@
-nav {
-    /* 1. FIJAR EL MENÚ ARRIBA */
-    position: fixed; /* Hace que el menú se quede quieto al bajar */
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    /* 2. EL TRUCO MÁGICO (Capa Superior) */
-    z-index: 1000; /* Un número alto asegura que esté ENCIMA de las fotos */
-
-    /* 3. FONDO SÓLIDO */
-    /* Si no pones fondo blanco, las fotos se verán "a través" de las letras */
-    background-color: white; 
-    
-    /* 4. ESTÉTICA (Opcional) */
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombrita para separarlo del contenido */
-}
-
-/* Reset básico para quitar márgenes por defecto */
+/* =========================================
+   1. CONFIGURACIÓN BÁSICA
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body {
-    font-family: 'Lato', sans-serif; /* Fuente para texto corrido */
-    color: #d7cbcb;
+    font-family: 'Cinzel', serif; /* Texto general */
+    color: #555;
+    background-color: #fff;
+    padding-top: 60px;
     line-height: 1.6;
 }
 
-/* Tipografía elegante para títulos */
-h1, h2, h3 {
+/* =========================================
+   2. TÍTULOS (DISTRIBUCIÓN DE FUENTES)
+   ========================================= */
+/* H1: Playfair Display (Elegante) */
+h1 {
     font-family: 'Playfair Display', serif;
-    color: #cdaa6c; /* Color dorado */
-}
-
-/* Estilo del Header (Hero Section) */
-header {
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-color: #2e4722; /* Color crema suave de fondo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #ffffff; /* Blanco */
+    font-weight: 700;
+    letter-spacing: 2px;
     text-align: center;
+    margin-bottom: 10px;    
 }
 
-header h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
+/* H3 , P: Playfair Display (Elegante) */
+h3, p {
+    font-family: 'Playfair Display', serif;
+    color: #cdaa6c; /* Dorado */
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-header .date {
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+/* H2: Cinzel (Épico) */
+h2 {
+    font-family: 'Cinzel', serif;
+    color: #cdaa6c;
+    font-weight: 700;
+    letter-spacing: 2px; 
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
 }
 
-/* Navegación */
+/* =========================================
+   3. NAVEGACIÓN
+   ========================================= */
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background: white;
-    padding: 15px;
+    padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 nav ul {
@@ -73,9 +74,7 @@ nav ul {
     list-style: none;
 }
 
-nav li {
-    margin: 0 20px;
-}
+nav li { margin: 0 15px; }
 
 nav a {
     text-decoration: none;
@@ -83,16 +82,16 @@ nav a {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9rem;
+    font-family: 'Cinzel', serif;
+    transition: color 0.3s;
 }
 
-/* Secciones generales */
-section {
-    padding: 80px 20px;
-    text-align: center;
-}
+nav a:hover { color: #2e4722; }
 
+/* =========================================
+   4. HEADER (HERO)
+   ========================================= */
 header#inicio {
-    /* 1. CONFIGURACIÓN DEL CONTENEDOR */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -100,118 +99,310 @@ header#inicio {
     align-items: center;
     text-align: center;
     color: white;
-    position: relative; /* Importante */
-
-    /* 2. LAS 3 CAPAS DE FONDO (En orden de aparición: Arriba -> Abajo) */
-    background-image:
-        url('img/bg1.png'), /* Capa 1: Fondo de color */
-        url('img/nvf1.png'),   /* Capa 2: Los Novios */
-        url('img/f1.jpg');     /* Capa 3: Fondo de humo */
-
-    /* 3. POSICIÓN DE CADA CAPA */
-    /* Color: Centro | Novios: Abajo al Centro | Humo: Centro */
+    position: relative;
+   
+    background-image: url('img/bg1.png'), url('img/nvf1.png'), url('img/f1.jpg');
     background-position: center bottom, right bottom, center center;
-
-    /* 4. TAMAÑO DE CADA CAPA */
-    /* Color: Todo | Novios: 60% de la altura (ajusta esto a tu gusto) | Humo: Todo */
-    background-size: cover,auto 90vh,cover;
-
-    /* 5. EVITAR REPETICIÓN */
+    
+    /* ZOOM CORREGIDO: 65vh para alejar a los novios */
+    background-size: cover, auto 95vh, cover;
+    
     background-repeat: no-repeat;
-}
-/* 1. Sombra fuerte para los Nombres (H1) */
-.hero-text h1 {
-    /* Desplazamiento X, Desplazamiento Y, Difuminado, Color (Negro con 70% opacidad) */
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    background-attachment: scroll, scroll, fixed; /* Efecto Parallax */
 }
 
-/* 2. Sombra suave para la fecha y el mensaje (Párrafos) */
-.hero-text p {
-    /* Un poco más sutil para el texto pequeño */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+/* Capa oscura para mejorar lectura */
+header#inicio::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
 }
-/* --- ESTILO DEL BOTÓN EN EL HEADER --- */
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 4rem; 
+    /* SOMBRA MEJORADA Y COLOR BLANCO */
+    text-shadow: 4px 4px 10px rgba(0,0,0,0.9);
+    margin-bottom: 10px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    color: white;
+}
+
+.hero-text .date {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-family: 'Cinzel', serif;
+}
+
+/* Cuenta Regresiva */
+#cuenta-regresiva {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.caja-tiempo {
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 70px;
+    text-align: center;
+}
+
+.caja-tiempo span { display: block; color: white; }
+
+#dias, #horas, #minutos, #segundos {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.etiqueta { font-size: 0.7rem; text-transform: uppercase; }
+
+/* Botones Header */
 .btn-header {
     display: inline-block;
-    margin-top: 30px;      /* Espacio separado del contador */
-    padding: 12px 35px;    /* Tamaño del botón */
-    
-    /* Diseño Ghost (Transparente con borde) */
-    background-color: transparent;
+    padding: 12px 30px;
     border: 2px solid white;
     color: white;
-    
-    /* Tipografía */
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Cinzel', serif;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    border-radius: 5px;    /* Bordes un poco redondeados */
-    
-    transition: all 0.3s ease;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-/* Efecto al pasar el mouse (Hover) */
 .btn-header:hover {
-    background-color: rgb(173, 136, 64);  /* Se rellena de blanco */
-    color: #214a16;           /* El texto se pone verde oscuro */
-    transform: scale(1.05);   /* Crece un poco */
-    cursor: pointer;
+    background: #cdaa6c;
+    border-color: #cdaa6c;
 }
+
+/* =========================================
+   5. SECCIÓN ITINERARIO
+   ========================================= */
+section { padding: 60px 20px; }
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #cdaa6c;
+    z-index: 0;
+}
+
+.evento {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    z-index: 1;
+}
+
+.icono-evento {
+    font-size: 2rem;
+    color: #2e4722;
+    margin-right: 20px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.info-evento { flex: 1; }
+
+.info-evento h3 {
+    text-align: left !important;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.info-evento h4 {
+    text-align: left;
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* =========================================
+   6. SECCIÓN DETALLES
+   ========================================= */
+.seccion-oscura { background-color: #f9f9f9; }
+
+.grid-detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tarjeta-detalle {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+}
+
+.tarjeta-detalle:hover { transform: translateY(-5px); }
+
+.tarjeta-detalle i {
+    font-size: 3rem;
+    color: #cdaa6c; /* Dorado */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.tarjeta-detalle h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-family: 'Cinzel', serif;
+}
+
+.btn-pequeno {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: 2px solid #cdaa6c;
+    color: #cdaa6c;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+
+.btn-pequeno:hover {
+    background: #cdaa6c;
+    color: white;
+}
+
+/* =========================================
+   7. GALERÍA (REPARADA - CARRUSEL)
+   ========================================= */
+/* Asegúrate que en tu HTML el div se llame class="galeria-fotos" */
+.galeria-fotos {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory; 
+    gap: 20px; 
+    padding: 30px 20px; 
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.galeria-fotos::-webkit-scrollbar { display: none; }
+
+.galeria-fotos img {
+    width: 280px !important;
+    height: 400px !important;
+    min-width: 280px !important;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border: 3px solid white;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+    cursor: grab;
+}
+
+.galeria-fotos img:hover {
+    transform: scale(1.05) translateY(-5px);
+    z-index: 2;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   8. ZONA SUBIR FOTOS
+   ========================================= */
+.zona-subir-fotos {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(46, 71, 34, 0.15); 
+    border: 1px solid rgba(205, 170, 108, 0.3);
+}
+
+.zona-subir-fotos p {
+    font-family: 'Cinzel', serif;
+    color: #2e4722;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
 .boton-fotos {
     display: inline-block;
-    margin-top: 30px;      /* Espacio separado del contador */
-    padding: 12px 35px;    /* Tamaño del botón */
-    
-    /* Diseño Ghost (Transparente con borde) */
-    background-color: transparent;
-    border: 2px solid#2e4722;
-    color: #2e4722;
-    
-    /* Tipografía */
+    padding: 15px 35px;
+    background: #cdaa6c;
+    color: white;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Cinzel', serif;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    border-radius: 5px;    /* Bordes un poco redondeados */
-    
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(205, 170, 108, 0.4);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .boton-fotos:hover {
-    background-color: rgb(173, 136, 64);  /* Se rellena de blanco */
-    color: #214a16;           /* El texto se pone verde oscuro */
-    transform: scale(1.05);   /* Crece un poco */
-    cursor: pointer;
-
+    background: #b5894c;
+    box-shadow: 0 8px 20px rgba(205, 170, 108, 0.6);
 }
 
-.galeria-fotos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-.galeria-fotos img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}   
-.galeria-fotos img:hover {
-    transform: scale(1.05);
-}
-.zona-subir-fotos {
-    margin-top: 30px;
-}
-.zona-subir-fotos p {
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer#pie {
+    background-image: url('img/bg1.png');
+    background-color: #2e4722;
+    background-size: cover;
+    color: white;
     text-align: center;
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 15px;
+    padding: 30px 20px;
+    font-family: 'Cinzel', serif;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
