@@ -7,20 +7,20 @@
 
 body {
     font-family: 'Lato', sans-serif; /* Fuente para texto corrido */
-    color: #4a4a4a;
+    color: #d7cbcb;
     line-height: 1.6;
 }
 
 /* Tipografía elegante para títulos */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    color: #bfa67a; /* Color dorado */
+    color: #cdaa6c; /* Color dorado */
 }
 
 /* Estilo del Header (Hero Section) */
 header {
     height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-color: #f4f1ea; /* Color crema suave de fondo */
+    background-color: #2e4722; /* Color crema suave de fondo */
     display: flex;
     justify-content: center;
     align-items: center;
