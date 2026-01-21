@@ -1,26 +1,45 @@
 /* =========================================
-   NAVEGACIÓN
+   NAVEGACIÓN (Escritorio)
    ========================================= */
-nav {
-    position: fixed;
+.navbar {
+    display: grid; /* Cambiado de flex a grid para control total */
+    grid-template-columns: 1fr auto 1fr; /* Col 1: Logo, Col 2: Menú, Col 3: Espacio vacío */
+    align-items: center;
+    padding: 15px 5%; /* Ajustado para dar más espacio a los lados */
+    background-color: #ffffff;
+    position: fixed; 
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
-    background: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1000;
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-nav ul {
+.nav-logo {
+    grid-column: 1; /* Se mantiene en la primera columna */
+    justify-self: start; /* Alineado a la izquierda */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2e4722; 
+    text-transform: uppercase;
+}
+
+.nav-links {
+    grid-column: 2; /* Se coloca en la columna central */
+    justify-self: center; /* Centrado absoluto */
     display: flex;
-    justify-content: center;
     list-style: none;
+    gap: 30px;
 }
 
-nav li { margin: 0 15px; }
+/* Espaciador invisible para equilibrar la Grid */
+.navbar::after {
+    content: "";
+    grid-column: 3;
+}
 
-nav a {
+.nav-links a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
@@ -30,10 +49,29 @@ nav a {
     transition: color 0.3s;
 }
 
-nav a:hover { color: #2e4722; }
+.nav-links a:hover {
+    color: #d4af37; 
+}
+
+/* --- BOTÓN HAMBURGUESA (Oculto en PC) --- */
+.menu-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    grid-column: 3; /* En móvil lo moveremos */
+    justify-self: end;
+}
+
+.menu-hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #2e4722;
+    transition: 0.3s;
+}
 
 /* =========================================
-   HEADER (HERO)
+   HEADER (HERO SECTION)
    ========================================= */
 header#inicio {
     height: 100vh;
@@ -44,12 +82,12 @@ header#inicio {
     text-align: center;
     color: white;
     position: relative;
-    /* Nota: Ajusta la ruta ../img si tus imagenes estan en otra carpeta */
     background-image: url('../img/bg1.png'), url('../img/nvf1.png'), url('../img/f1.jpg');
     background-position: center bottom, right bottom, center center;
     background-size: cover, auto 95vh, cover;
     background-repeat: no-repeat;
     background-attachment: scroll, scroll, fixed;
+    padding-top: 70px; 
 }
 
 header#inicio::before {
@@ -57,7 +95,7 @@ header#inicio::before {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.35); 
     z-index: 0;
 }
 
@@ -72,6 +110,7 @@ header#inicio::before {
     margin-bottom: 10px;
     color: #ffffff;
     line-height: 1.2;
+    font-family: 'Playfair Display', serif;
 }
 
 .hero-text p {
@@ -86,7 +125,7 @@ header#inicio::before {
     font-family: 'Cinzel', serif;
 }
 
-/* Cuenta Regresiva */
+/* --- CUENTA REGRESIVA --- */
 #cuenta-regresiva {
     display: flex;
     justify-content: center;
@@ -99,8 +138,9 @@ header#inicio::before {
     background: rgba(0,0,0,0.5);
     padding: 10px 15px;
     border-radius: 8px;
-    min-width: 70px;
+    min-width: 75px;
     text-align: center;
+    backdrop-filter: blur(5px); 
 }
 
 .caja-tiempo span { display: block; color: white; }
@@ -123,9 +163,45 @@ header#inicio::before {
     font-weight: bold;
     border-radius: 5px;
     transition: 0.3s;
+    margin-top: 20px;
 }
 
 .btn-header:hover {
-    background: #cdaa6c;
+    background: #cdaa6c; 
     border-color: #cdaa6c;
+}
+
+/* =========================================
+   ADAPTACIÓN MÓVIL (Menos de 768px)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        display: flex !important; /* Forzamos flexbox para ignorar las columnas de Grid */
+        justify-content: space-between !important; /* Logo a la izquierda, menú a la derecha */
+        grid-template-columns: none !important; /* Elimina la estructura de 3 columnas de PC */
+        padding: 10px 5%;
+        width: 100%;
+    }
+
+    /* ¡IMPORTANTE! Ocultar el espaciador invisible que centraba el menú en PC */
+    .navbar::after {
+        display: none !important;
+    }
+
+    .nav-logo {
+        margin: 0;
+        justify-self: flex-start;
+    }
+
+    .menu-hamburger {
+        display: flex !important;
+        margin-left: auto; /* Refuerzo extra para empujar el icono al borde derecho */
+        padding-right: 0;
+    }
+
+    /* El resto de la configuración de .nav-links se mantiene igual */
+    .nav-links {
+        display: none;
+        /* ... tus estilos de despliegue ... */
+    }
 }

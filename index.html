@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Acompáñanos a celebrar nuestra boda. Felipe & Catherine - 06 de Marzo, 2026.">
-    <meta name="theme-color" content="#2e4722"> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <title>Nuestra Boda | Felipe & Catherine</title>
+    <meta name="theme-color" content="#2e4722"> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+    <title>Nuestra Boda | Felipe & Catherine</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/sections.css">
@@ -18,13 +20,18 @@
     <link rel="stylesheet" href="css/footer.css">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    </head>
+</head>
 <body>
 
-    <nav>
-        <ul>
+    <nav class="navbar">
+        <div class="nav-logo">F & C</div>
+
+<div class="menu-hamburger" id="menu-hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#itinerario">Itinerario</a></li>
             <li><a href="#detalles">Detalles</a></li>
@@ -32,29 +39,17 @@
         </ul>
     </nav>
 
-    <header id="inicio">
+    <header id="inicio" class="hero-section">
         <div class="hero-text" data-aos="fade-up" data-aos-duration="1500">
             <h1>Felipe & Catherine</h1>
             <h2>¡Nos casamos!</h2>
             <p class="date">06 de Marzo, 2026</p>
 
             <div id="cuenta-regresiva">
-                <div class="caja-tiempo">
-                    <span id="dias">00</span>
-                    <span class="etiqueta">Días</span>
-                </div>
-                <div class="caja-tiempo">
-                    <span id="horas">00</span>
-                    <span class="etiqueta">Hs</span>
-                </div>
-                <div class="caja-tiempo">
-                    <span id="minutos">00</span>
-                    <span class="etiqueta">Min</span>
-                </div>
-                <div class="caja-tiempo">
-                    <span id="segundos">00</span>
-                    <span class="etiqueta">Seg</span>
-                </div>
+                <div class="caja-tiempo"><span id="dias">00</span><span class="etiqueta">Días</span></div>
+                <div class="caja-tiempo"><span id="horas">00</span><span class="etiqueta">Hs</span></div>
+                <div class="caja-tiempo"><span id="minutos">00</span><span class="etiqueta">Min</span></div>
+                <div class="caja-tiempo"><span id="segundos">00</span><span class="etiqueta">Seg</span></div>
             </div>
 
             <a href="https://forms.gle/St1J2kiGzVBWP7RCA" target="_blank" class="btn-header">
@@ -64,92 +59,111 @@
     </header>
 
     <section id="itinerario">
-        <h2 data-aos="fade-up">El Gran Día</h2>
-        <p data-aos="fade-up">Acompáñanos en cada momento</p>
-        
-        <div class="timeline-container">
-            <div class="evento" data-aos="fade-right">
-                <div class="icono-evento"><i class="fas fa-church"></i></div>
-                <div class="info-evento">
-                    <h3>3:30 PM</h3>
-                    <h4>Ceremonia Religiosa</h4>
-                </div>
-            </div>
+        <div class="container">
+            <h2 data-aos="fade-up">El Gran Día</h2>
+            <p data-aos="fade-up">Acompáñanos en cada momento de nuestra unión</p>
             
-            <div class="evento" data-aos="fade-left">
-                <div class="icono-evento"><i class="fas fa-glass-cheers"></i></div>
-                <div class="info-evento">
-                    <h3>4:30 PM</h3>
-                    <h4>Recepción y Coctel</h4>
+            <div class="timeline-container">
+                <div class="evento" data-aos="fade-right">
+                    <div class="icono-evento"><i class="fas fa-church"></i></div>
+                    <div class="info-evento">
+                        <h3>4:30 PM</h3>
+                        <h4>Ceremonia Religiosa</h4>
+                    </div>
                 </div>
-            </div>
+                
+                <div class="evento" data-aos="fade-left">
+                    <div class="icono-evento"><i class="fas fa-glass-cheers"></i></div>
+                    <div class="info-evento">
+                        <h3>5:30 PM</h3>
+                        <h4>Recepción y Coctel</h4>
+                    </div>
+                </div>
 
-            <div class="evento" data-aos="fade-right">
-                <div class="icono-evento"><i class="fas fa-music"></i></div>
-                <div class="info-evento">
-                    <h3>7:00 PM</h3>
-                    <h4>Fiesta y Cena</h4>
+                <div class="evento" data-aos="fade-right">
+                    <div class="icono-evento"><i class="fas fa-music"></i></div>
+                    <div class="info-evento">
+                        <h3>7:00 PM</h3>
+                        <h4>Fiesta y Cena</h4>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="detalles" class="seccion-oscura">
-        <h2 data-aos="fade-up">Información Importante</h2>
-        
-        <div class="grid-detalles">
-            <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Ubicación</h3>
-                <p>Salon de eventos Turquesa</p>
-                <p>Medellín, Antioquia, Carrera 81 # 28-52 | Piso 2</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+eventos+Turquesa+Medellin" target="_blank" class="btn-pequeno">Ver Mapa</a>
-            </div>
+        <div class="container">
+            <h2 data-aos="fade-up">Información Importante</h2>
+            
+            <div class="grid-detalles">
+                <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Ubicación</h3>
+                    <p><strong>Salon de eventos Turquesa</strong></p>
+                    <p>Medellín, Carrera 81 # 28-52 | Piso 2</p>
+                    <a href="https://maps.app.goo.gl/coZsNMUfWKXPpe376" target="_blank" class="btn-pequeno">Ver Mapa</a>
+                </div>
 
-            <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fas fa-user-tie"></i>
-                <h3>Código de Vestimenta</h3>
-                <p>Formal / Elegante</p>
-            </div>
+                <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Vestimenta</h3>
+                    <p>Formal / Elegante</p>
+                </div>
 
-            <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="300">
-                <i class="fas fa-envelope-open-text"></i>
-                <h3>Regalos</h3>
-                <p>Su presencia es nuestro mejor regalo.</p>
-                <p>Si desean tener un detalle, agradecemos lluvia de sobres.</p>
+                <div class="tarjeta-detalle" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Regalos</h3>
+                    <p>Su presencia es nuestro mejor regalo.</p>
+                    <p>Si desean tener un detalle, agradecemos lluvia de sobres.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="galeria">
+   <section id="galeria">
+    <div class="container">
         <h2 data-aos="fade-up">Nuestros Momentos</h2>
-        
-        <div class="galeria-fotos" data-aos="fade-up" data-aos-delay="200">
-            <img src="img/foto1.jpg" alt="Felipe y Catherine foto 1" width="280" height="400" loading="lazy">
-            <img src="img/foto2.jpg" alt="Felipe y Catherine foto 2" width="280" height="400" loading="lazy">
-            <img src="img/foto3.jpg" alt="Felipe y Catherine foto 3" width="280" height="400" loading="lazy">
-            <img src="img/foto4.jpg" alt="Felipe y Catherine foto 4" width="280" height="400" loading="lazy">
-            <img src="img/foto5.jpg" alt="Felipe y Catherine foto 5" width="280" height="400" loading="lazy">
+    </div>
+    
+    <div class="galeria-container">
+        <div class="galeria-track">
+            <img src="img/foto1.jpg" alt="Boda 1">
+            <img src="img/foto2.jpg" alt="Boda 2">
+            <img src="img/foto3.jpg" alt="Boda 3">
+            <img src="img/foto4.jpg" alt="Boda 4">
+            <img src="img/foto5.jpg" alt="Boda 5">
+            
+            <img src="img/foto1.jpg" alt="Boda 1">
+            <img src="img/foto2.jpg" alt="Boda 2">
+            <img src="img/foto3.jpg" alt="Boda 3">
+            <img src="img/foto4.jpg" alt="Boda 4">
+            <img src="img/foto5.jpg" alt="Boda 5">
         </div>
+    </div>
 
+    <div class="container">
         <div class="zona-subir-fotos" data-aos="flip-up">
-            <p>¿Tienes fotos de la boda?<br>¡Súbelas al álbum compartido!</p>
+            <p>¿Tienes fotos de la boda?<br>¡Ayúdanos a completar nuestro álbum!</p>
             <a href="https://photos.app.goo.gl/G5GfATaS8QBMm86L7" target="_blank" class="boton-fotos">
-                Subir Fotos 
+                Subir Fotos <i class="fas fa-cloud-upload-alt"></i>
             </a>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer id="pie">
-        <p>Felipe & Catherine - 2026</p>
-        <p style="font-size: 0.8rem; margin-top: 5px;">Con amor para nuestra boda</p>
+        <div class="footer-content">
+            <p>© 2026 Felipe & Catherine.</p>
+            <h3>¡Esperamos verte allí!</h3>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Con amor, para nuestra boda</p>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once: true, /* La animación solo ocurre una vez al bajar */
-            offset: 100
+            once: true, // La animación solo ocurre una vez al bajar
+            duration: 1000
         });
     </script>
     
