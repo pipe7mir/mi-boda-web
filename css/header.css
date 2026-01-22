@@ -1,3 +1,17 @@
+
+/* =========================================
+   RESET GLOBAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Esto evita que el padding empuje la barra hacia afuera */
+}
+
+html, body {
+    overflow-x: hidden; /* Evita que la página se mueva hacia los lados */
+    width: 100%;
+}
 /* =========================================
    NAVEGACIÓN (Escritorio)
    ========================================= */
@@ -170,38 +184,132 @@ header#inicio::before {
     background: #cdaa6c; 
     border-color: #cdaa6c;
 }
-
 /* =========================================
    ADAPTACIÓN MÓVIL (Menos de 768px)
    ========================================= */
 @media (max-width: 768px) {
     .navbar {
-        display: flex !important; /* Forzamos flexbox para ignorar las columnas de Grid */
-        justify-content: space-between !important; /* Logo a la izquierda, menú a la derecha */
-        grid-template-columns: none !important; /* Elimina la estructura de 3 columnas de PC */
-        padding: 10px 5%;
+        display: flex !important; /* Cambiamos a Flexbox para móviles */
+        justify-content: space-between !important; /* Logo a la izq, Menú a la der */
+        align-items: center !important;
+        padding: 10px 5% !important; /* Espacio lateral interno */
+        height: 70px;
         width: 100%;
-    }
-
-    /* ¡IMPORTANTE! Ocultar el espaciador invisible que centraba el menú en PC */
-    .navbar::after {
-        display: none !important;
+        box-sizing: border-box;
     }
 
     .nav-logo {
+        /* Usamos la misma fuente Playfair Display que el título principal */
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.6rem;
         margin: 0;
-        justify-self: flex-start;
+        z-index: 2001;
+    }
+
+    .menu-hamburger {
+        display: flex !important; /* Aparece el botón de tres líneas */
+        flex-direction: column;
+        gap: 5px;
+        z-index: 2001;
+        cursor: pointer;
+    }
+
+    /* Estilos de las líneas del menú */
+    .menu-hamburger span {
+        width: 28px;
+        height: 3px;
+        background-color: #2e4722; /* Tu verde temático */
+        transition: 0.3s ease;
+    }
+
+    /* --- Animación de la X cuando el menú está abierto --- */
+    .menu-hamburger.is-active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-hamburger.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-hamburger.is-active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* --- Desplegable del Menú --- */
+    .nav-links {
+        display: none; /* Oculto inicialmente */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Coincide con la altura de la navbar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 40px 0;
+        text-align: center;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        z-index: 2000;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+        animation: slideDown 0.4s ease forwards;
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* 1. RESET GLOBAL (Añade esto al principio de tu CSS si no lo tienes) */
+* {
+    box-sizing: border-box; /* Evita que el padding rompa el ancho del 100% */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. CONFIGURACIÓN NAVBAR */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%; /* Asegura que cubra todo el ancho */
+    top: 0;
+    left: 0;
+    right: 0; /* Refuerzo para evitar la esquina blanca */
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Espaciador para PC (Centra el menú) */
+.navbar::after {
+    content: "";
+    grid-column: 3;
+}
+
+/* 3. ADAPTACIÓN MÓVIL (Aquí está la reparación) */
+@media (max-width: 768px) {
+    .navbar {
+        display: flex !important; /* Forzamos Flexbox para eliminar las columnas de PC */
+        justify-content: space-between !important; /* Logo a la izq, Menú a la der */
+        padding: 10px 5% !important;
+        height: 70px;
+    }
+
+    /* ELIMINAR EL ESPACIO FANTASMA QUE LO CENTRA */
+    .navbar::after {
+        display: none !important; /* Esto quita el error de centrado */
+    }
+
+    .nav-logo {
+        font-family: 'Playfair Display', serif; /* Tu tipografía h1 */
+        font-size: 1.6rem;
+        margin: 0;
     }
 
     .menu-hamburger {
         display: flex !important;
-        margin-left: auto; /* Refuerzo extra para empujar el icono al borde derecho */
-        padding-right: 0;
-    }
-
-    /* El resto de la configuración de .nav-links se mantiene igual */
-    .nav-links {
-        display: none;
-        /* ... tus estilos de despliegue ... */
+        margin: 0; /* Quita márgenes que lo muevan del borde */
     }
 }
