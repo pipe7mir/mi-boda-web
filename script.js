@@ -58,3 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("⚠️ Advertencia: No se encontraron los IDs del contador (dias, horas, minutos o segundos).");
     }
 });
+// (Ya lo tienes, no hace falta añadirlo de nuevo)
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader-wrapper');
+    setTimeout(() => {
+        loader.classList.add('loader-hidden');
+    }, 1000); // Pequeña pausa para admirar el corazón
+});

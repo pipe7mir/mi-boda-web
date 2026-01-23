@@ -1,4 +1,106 @@
-    /* =========================================
+/* =========================================
+   PANTALLA DE CARGA (CORAZÓN DORADO 3D)
+   ========================================= */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffffff, #f0f0f0); /* Fondo con ligero viñeteado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-content {
+    text-align: center;
+    color: #2e4722;
+}
+
+/* Contenedor principal */
+.golden-heart-container {
+    position: relative;
+    width: 90px; /* Un poco más grande para que se luzca */
+    height: 90px;
+    margin: 0 auto 25px auto;
+    /* Animación de latido con un rebote más suave */
+    animation: heartbeat3D 1.8s infinite ease-in-out;
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.2)); /* Sombra suave para todo el conjunto */
+}
+
+/* La forma base del corazón (cuadrado rotado) */
+.heart-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado lineal para dar volumen a la parte inferior */
+    background: linear-gradient(135deg, #f5e0a3 0%, #d4af37 50%, #a67c00 100%);
+    transform: rotate(45deg);
+    /* Un borde biselado sutil para efecto de grosor */
+    border-right: 1px solid #f8eeb8;
+    border-bottom: 1px solid #8c6900;
+}
+
+/* Los círculos superiores con efecto esférico */
+.heart-shape::before,
+.heart-shape::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Degradado radial para que parezcan esferas */
+    /* El punto de luz está arriba a la izquierda (30% 30%) */
+    background: radial-gradient(circle at 30% 30%, #f5e0a3, #d4af37 55%, #a67c00 100%);
+    /* Un brillo sutil en el borde superior */
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.heart-shape::before {
+    transform: translateX(-50%);
+}
+
+.heart-shape::after {
+    transform: translateY(-50%);
+}
+
+/* El texto dentro del corazón */
+.heart-text-inside {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: #ffffff;
+    z-index: 10;
+    /* Sombra en el texto para que flote sobre el dorado */
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Animación de latido más orgánica para 3D */
+@keyframes heartbeat3D {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); } /* Expansión rápida */
+    30% { transform: scale(1.05); } /* Pequeño rebote */
+    45% { transform: scale(1.1); } /* Segunda expansión suave */
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* =========================================
     GLOBAL: RESETS Y TIPOGRAFÍA
     ========================================= */
     * {
