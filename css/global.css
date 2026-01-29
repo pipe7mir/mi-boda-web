@@ -1,13 +1,15 @@
-/* =========================================
-   PANTALLA DE CARGA (CORAZÓN DORADO 3D)
-   ========================================= */
+/* ============================================================
+   PANTALLA DE CARGA UNIFICADA: IMAGEN 3D + TEXTO CENTRADO
+   ============================================================ */
+
 #loader-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #ffffff, #f0f0f0); /* Fondo con ligero viñeteado */
+    /* Fondo con ligero viñeteado para dar profundidad */
+    background: radial-gradient(circle, #ffffff, #f0f0f0); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,84 +19,63 @@
 
 .loader-content {
     text-align: center;
-    color: #2e4722;
+    color: #2e4722; /* Tu verde temático de la boda */
 }
 
-/* Contenedor principal */
-.golden-heart-container {
+/* Contenedor relativo: define el área donde el texto se centrará */
+.image-loader-container {
     position: relative;
-    width: 90px; /* Un poco más grande para que se luzca */
-    height: 90px;
-    margin: 0 auto 25px auto;
-    /* Animación de latido con un rebote más suave */
+    display: inline-block; /* Se ajusta al ancho de la imagen */
+    margin: 0 auto 20px auto;
+    /* Animación de latido orgánica (pum-pum) */
     animation: heartbeat3D 1.8s infinite ease-in-out;
-    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.2)); /* Sombra suave para todo el conjunto */
 }
 
-/* La forma base del corazón (cuadrado rotado) */
-.heart-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Degradado lineal para dar volumen a la parte inferior */
-    background: linear-gradient(135deg, #f5e0a3 0%, #d4af37 50%, #a67c00 100%);
-    transform: rotate(45deg);
-    /* Un borde biselado sutil para efecto de grosor */
-    border-right: 1px solid #f8eeb8;
-    border-bottom: 1px solid #8c6900;
+/* Imagen del corazón reducida al 50% (60px) */
+.loader-img-file {
+    width: 200px; 
+    height: auto;
+    display: block;
+    /* Efecto de elevación 3D */
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
-/* Los círculos superiores con efecto esférico */
-.heart-shape::before,
-.heart-shape::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    /* Degradado radial para que parezcan esferas */
-    /* El punto de luz está arriba a la izquierda (30% 30%) */
-    background: radial-gradient(circle at 30% 30%, #f5e0a3, #d4af37 55%, #a67c00 100%);
-    /* Un brillo sutil en el borde superior */
-    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.4);
-}
-
-.heart-shape::before {
-    transform: translateX(-50%);
-}
-
-.heart-shape::after {
-    transform: translateY(-50%);
-}
-
-/* El texto dentro del corazón */
+/* Centrado absoluto de F&C sobre el corazón */
 .heart-text-inside {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* Desplaza el texto exactamente a su centro visual */
+    transform: translate(-50%, -50%); 
+    
+    /* Tipografía elegante */
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
-    font-size: 1.6rem;
-    color: #ffffff;
-    z-index: 10;
-    /* Sombra en el texto para que flote sobre el dorado */
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+    font-size: 1.1rem; /* Ajustado proporcionalmente al tamaño de 60px */
+    color:  #2e4722; /* verde temático */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    pointer-events: none; /* Evita interferencias con el mouse */
+    white-space: nowrap;
 }
 
-/* Animación de latido más orgánica para 3D */
+/* Mensaje inferior */
+.loader-content p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Animación de latido 3D */
 @keyframes heartbeat3D {
     0%, 100% { transform: scale(1); }
     15% { transform: scale(1.15); } /* Expansión rápida */
-    30% { transform: scale(1.05); } /* Pequeño rebote */
-    45% { transform: scale(1.1); } /* Segunda expansión suave */
+    30% { transform: scale(1.05); } /* Rebote sutil */
+    45% { transform: scale(1.1); }  /* Expansión suave */
 }
 
+/* Clase de salida */
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
@@ -102,7 +83,7 @@
 
 /* =========================================
     GLOBAL: RESETS Y TIPOGRAFÍA
-    ========================================= */
+/* =========================================
     * {
         margin: 0;
         padding: 0;
